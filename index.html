@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuestionario</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #a2d5f2; /* Fondo celeste */
+    }
+
+    #cuestionario {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .formulario-oculto {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .respuesta {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="cuestionario">
+  <h2>Conoces a Ramiro Ayala y Elias Jones (Huevo)</h2>
+  <div id="opciones">
+    <button onclick="mostrarFormulario('respuestaNo')">No</button>
+    <button onclick="mostrarFormulario('respuestaSi')">Sí</button>
+  </div>
+
+  <div id="respuestaNo" class="formulario-oculto">
+    <h2>¡Qué mal! Una lástima</h2>
+  </div>
+
+  <div id="respuestaSi" class="formulario-oculto">
+    <h2>Estás libre el 3 de febrero y estás en Reconquista?</h2>
+    <div id="opcionesSi">
+      <button onclick="mostrarMensaje('respuestaOhMal')">No</button>
+      <button onclick="mostrarFormulario('respuestaCumple')">Sí</button>
+    </div>
+  </div>
+
+  <div id="respuestaOhMal" class="formulario-oculto respuesta">
+    <h2>¡Oh, qué mal!</h2>
+  </div>
+
+  <div id="respuestaCumple" class="formulario-oculto">
+    <h2>Vas a poder asistir? <a href="https://maps.app.goo.gl/3sx4ByL1i82QiQ2s5" target="_blank">(Ubicación)</a></h2>
+    <div id="opcionesAsistencia">
+      <button onclick="mostrarMensaje('respuestaLastima')">No</button>
+      <button onclick="mostrarMensaje('respuestaConfirmar')">Sí</button>
+    </div>
+  </div>
+
+  <div id="respuestaLastima" class="formulario-oculto respuesta">
+    <h2>Bueno, una lástima.</h2>
+  </div>
+
+  <div id="respuestaConfirmar" class="formulario-oculto respuesta">
+    <h2>Aprieta el siguiente link para confirmar tu asistencia: <a href="https://api.whatsapp.com/send?phone=+54&text=Hola,%20Quiero%20confirmar%20mi%20asistencia%20el%20sábado%203%20a%20la%20quinta%20" target="_blank">Confirmar Asistencia</a></h2>
+  </div>
+</div>
+
+<script>
+  function mostrarFormulario(idFormulario) {
+    // Oculta todos los formularios
+    document.querySelectorAll('.formulario-oculto').forEach(formulario => {
+      formulario.style.display = 'none';
+    });
+
+    // Muestra el formulario seleccionado
+    document.getElementById(idFormulario).style.display = 'block';
+  }
+
+  function mostrarMensaje(idMensaje) {
+    // Oculta todos los mensajes
+    document.querySelectorAll('.formulario-oculto').forEach(formulario => {
+      formulario.style.display = 'none';
+    });
+
+    // Muestra el mensaje seleccionado
+    document.getElementById(idMensaje).style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
