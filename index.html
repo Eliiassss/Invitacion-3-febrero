@@ -55,6 +55,13 @@
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
       margin-top: 20px;
     }
+
+    #confirmacionImagen {
+      width: 100%; /* La imagen ocupa el 100% del ancho del contenedor */
+      max-width: 400px; /* La imagen no superará los 400px de ancho */
+      height: auto; /* La altura se ajusta automáticamente para mantener las proporciones */
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -73,7 +80,7 @@
   <div id="respuestaSi" class="formulario-oculto">
     <h2>Estás libre el 3 de febrero y estás en Reconquista?</h2>
     <div id="opcionesSi">
-      <button onclick="mostrarMensaje('respuestaOhMal')">No</button>
+      <button onclick="mostrarFormulario('respuestaOhMal')">No</button>
       <button onclick="mostrarFormulario('respuestaCumple')">Sí</button>
     </div>
   </div>
@@ -85,8 +92,8 @@
   <div id="respuestaCumple" class="formulario-oculto">
     <h2>Vas a poder asistir? <a href="https://maps.app.goo.gl/3sx4ByL1i82QiQ2s5" target="_blank">(Ubicación)</a></h2>
     <div id="opcionesAsistencia">
-      <button onclick="mostrarMensaje('respuestaLastima')">No</button>
-      <button onclick="mostrarMensaje('respuestaConfirmar')">Sí</button>
+      <button onclick="mostrarFormulario('respuestaLastima')">No</button>
+      <button onclick="mostrarFormulario('respuestaConfirmar')">Sí</button>
     </div>
   </div>
 
@@ -95,7 +102,8 @@
   </div>
 
   <div id="respuestaConfirmar" class="formulario-oculto respuesta">
-    <h2>Aprieta el siguiente link para confirmar tu asistencia: <a href="https://api.whatsapp.com/send?phone=+3482632443&text=Hola,%20Quiero%20confirmar%20mi%20asistencia%20el%20sabado%203%20a%20la%20quinta%20" target="_blank">Confirmar Asistencia</a></h2>
+    <h2>Aprieta el siguiente link para confirmar tu asistencia: <a href="https://api.whatsapp.com/send?phone=+3482632443&text=Hola,%20Quiero%20confirmar%20mi%20asistencia%20el%20sábado%203%20a%20la%20quinta%20" target="_blank">Confirmar Asistencia</a></h2>
+    <img id="confirmacionImagen" src="https://i.ibb.co/k1yKpDY/Whats-App-Image-2024-01-08-at-23-46-28.jpg" alt="Confirmación de Asistencia">
   </div>
 </div>
 
@@ -108,16 +116,6 @@
 
     // Muestra el formulario seleccionado
     document.getElementById(idFormulario).style.display = 'block';
-  }
-
-  function mostrarMensaje(idMensaje) {
-    // Oculta todos los mensajes
-    document.querySelectorAll('.formulario-oculto').forEach(formulario => {
-      formulario.style.display = 'none';
-    });
-
-    // Muestra el mensaje seleccionado
-    document.getElementById(idMensaje).style.display = 'block';
   }
 </script>
 
